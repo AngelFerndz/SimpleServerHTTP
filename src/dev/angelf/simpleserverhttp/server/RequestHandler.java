@@ -11,15 +11,22 @@ public class RequestHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        String response = get(httpExchange.getRequestURI().toString());
-        httpExchange.sendResponseHeaders(200, response.length());
+        String request = httpExchange.getRequestURI().toString();
+        System.out.println("Request: " + request);
+
+        // Redirect to Index.html
+        if(request.endsWith("/")){
+
+        }
+
+        String fileContent = get(request);
+        httpExchange.sendResponseHeaders(200, fileContent.length());
         OutputStream outputStream = httpExchange.getResponseBody();
-        outputStream.write(response.getBytes());
+        outputStream.write(fileContent.getBytes());
         outputStream.close();
     }
 
     private String get(String File){
-        System.out.println("Request: " +  File);
         return ReadFile.read("files" + File);
     }
 

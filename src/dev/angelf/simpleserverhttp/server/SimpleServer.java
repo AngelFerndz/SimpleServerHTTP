@@ -11,6 +11,8 @@ public class SimpleServer {
     private int port;
     private HttpServer server;
 
+    // Constructors
+
     public SimpleServer() {
         port = 8080;
         hostname = "localhost";
@@ -26,6 +28,8 @@ public class SimpleServer {
         hostname = HostName;
     }
 
+    // Methods
+
     public void start(){
         start(1);
     }
@@ -33,14 +37,15 @@ public class SimpleServer {
     public void start(int ThreadAmount){
         try {
             server = HttpServer.create(new InetSocketAddress(hostname, port), 0);
-            ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(ThreadAmount);
+            ThreadPoolExecutor threadPoolExecutor;
+            threadPoolExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(ThreadAmount);
 
             server.createContext("/", new RequestHandler());
             server.setExecutor(threadPoolExecutor);
             server.start();
 
         } catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Error: " + e);
         }
     }
 
