@@ -13,12 +13,6 @@ public class RequestHandler implements HttpHandler {
     public void handle(HttpExchange httpExchange) throws IOException {
         String request = httpExchange.getRequestURI().toString();
         System.out.println("Request: " + request);
-
-        // Redirect to Index.html
-        if(request.endsWith("/")){
-
-        }
-
         String fileContent = get(request);
         httpExchange.sendResponseHeaders(200, fileContent.length());
         OutputStream outputStream = httpExchange.getResponseBody();

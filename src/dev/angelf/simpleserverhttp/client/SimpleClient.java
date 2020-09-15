@@ -10,7 +10,7 @@ public class SimpleClient {
 
     public String request(String IP, String Port, String Location) {
         try {
-            String Address = IP + ":" + Port + Location;
+            String Address = "http://" + IP + ":" + Port + Location;
             URL url = new URL(Address);
             HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
 
@@ -24,13 +24,12 @@ public class SimpleClient {
             String result = "";
             String strCurrentLine;
             while ((strCurrentLine = br.readLine()) != null) {
-                System.out.println(strCurrentLine);
                 result += strCurrentLine;
             }
             return result;
         } catch (Exception e) {
-            sendPingRequest(IP);
-            return ("Request Error: " + e);
+            String ping = sendPingRequest(IP);
+            return ("Request Error: " + e + " | " + ping);
         }
     }
 
@@ -41,10 +40,11 @@ public class SimpleClient {
             if (geek.isReachable(5000)) {
                 return "Host is reachable";
             } else {
-                return "Sorry ! We can't reach to this host";
+                return "Cannot reach to this host";
             }
         } catch (Exception e) {
             return "Ping Error: " + e;
         }
     }
+
 }
