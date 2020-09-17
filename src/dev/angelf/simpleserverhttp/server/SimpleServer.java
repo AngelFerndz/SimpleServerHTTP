@@ -1,6 +1,9 @@
 package dev.angelf.simpleserverhttp.server;
 
 import com.sun.net.httpserver.HttpServer;
+
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -49,8 +52,22 @@ public class SimpleServer {
         }
     }
 
+    public void stop(){
+        System.out.println("Stopping Server");
+        server.stop(1);
+    }
+
     public int getPort() {
         return port;
+    }
+
+    public String getIP(){
+        try(final DatagramSocket socket = new DatagramSocket()){
+            socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
+            return socket.getLocalAddress().getHostAddress();
+        } catch (Exception e) {
+            return "Error: " + e;
+        }
     }
 
 }
