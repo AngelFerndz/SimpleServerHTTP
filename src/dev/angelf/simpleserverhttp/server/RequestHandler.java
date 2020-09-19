@@ -13,15 +13,29 @@ public class RequestHandler implements HttpHandler {
     public void handle(HttpExchange httpExchange) throws IOException {
         String request = httpExchange.getRequestURI().toString();
         System.out.println("Request: " + request);
-        String fileContent = get(request);
-        httpExchange.sendResponseHeaders(200, fileContent.length());
+        String response = process(request);
+        httpExchange.sendResponseHeaders(200, response.length());
         OutputStream outputStream = httpExchange.getResponseBody();
-        outputStream.write(fileContent.getBytes());
+        outputStream.write(response.getBytes());
         outputStream.close();
     }
 
     private String get(String File){
-        return ReadFile.read("files" + File);
+        return ReadFile.read("file/" + File);
+    }
+
+    private String process(String request){
+        String[] command = request.toLowerCase().split("/");
+
+//        for(String s : command){
+//            System.out.println(s);
+//        }
+
+        switch (command[1]){
+            case "file": return get(command[2]);
+            case "test": return "Test Works";
+        }
+        return "Invalid Request Error";
     }
 
 }

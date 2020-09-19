@@ -66,7 +66,8 @@ public class Main {
 
     private static void startClient() {
         simpleClient = new SimpleClient();
-        String response = simpleClient.request("127.0.0.1", "8001", "/ip_list.json");
+        //String response = simpleClient.request("127.0.0.1", "8080", "/file/ip_list.json");
+        String response = simpleClient.request("127.0.0.1", "8080", "/test");
         System.out.println(response);
     }
 
