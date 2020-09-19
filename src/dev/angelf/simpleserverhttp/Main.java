@@ -14,10 +14,12 @@ public class Main {
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
         process("help");
+
         while (true) {
             String command = scanner.nextLine();
             process(command);
         }
+
     }
 
     private static void process(String command) {
