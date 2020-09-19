@@ -13,26 +13,32 @@ public class SimpleServer {
     private String hostname;
     private int port;
     private HttpServer server;
+    private static SimpleServer instance;
 
-    // Constructors
-
-    public SimpleServer() {
-        port = 8080;
-        hostname = "localhost";
+    // Singleton
+    public static void initialize(){
+        instance = new SimpleServer(8080, "localhost");
     }
 
-    public SimpleServer(int Port) {
-        port = Port;
-        hostname = "localhost";
+    public static void initialize(int Port){
+        instance = new SimpleServer(Port, "localhost");
     }
 
-    public SimpleServer(int Port, String HostName) {
+    public static void initialize(int Port, String HostName){
+        instance = new SimpleServer(Port, HostName);
+    }
+
+    public static SimpleServer getInstance(){
+        return instance;
+    }
+
+    // Constructor
+    private SimpleServer(int Port, String HostName) {
         port = Port;
         hostname = HostName;
     }
 
     // Methods
-
     public void start() {
         start(1);
     }

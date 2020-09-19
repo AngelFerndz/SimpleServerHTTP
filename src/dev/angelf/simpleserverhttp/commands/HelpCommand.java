@@ -7,10 +7,10 @@ public class HelpCommand implements Command {
         String[] elements = command.split(" ");
         if (elements.length > 1) {
             switch (elements[1]) {
+                // add command variants
                 case "request":
                     System.out.println("request [request]");
                     break;
-                // add command variants
             }
         } else {
             full();
