@@ -20,18 +20,18 @@ public class RequestHandler implements HttpHandler {
         outputStream.close();
     }
 
-    private String get(String File){
+    private String get(String File) {
         return ReadFile.read("file/" + File);
     }
 
-    private String process(String request){
+    private String process(String request) {
         String[] command = request.toLowerCase().split("/");
 
 //        for(String s : command){
 //            System.out.println(s);
 //        }
 
-        switch (command[1]){
+        switch (command[1]) {
             case "file": return get(command[2]);
             case "test": return "Test Works";
         }

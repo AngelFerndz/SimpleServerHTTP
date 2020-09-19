@@ -26,18 +26,18 @@ public class SimpleServer {
         hostname = "localhost";
     }
 
-    public SimpleServer(int Port, String HostName){
+    public SimpleServer(int Port, String HostName) {
         port = Port;
         hostname = HostName;
     }
 
     // Methods
 
-    public void start(){
+    public void start() {
         start(1);
     }
 
-    public void start(int ThreadAmount){
+    public void start(int ThreadAmount) {
         try {
             server = HttpServer.create(new InetSocketAddress(hostname, port), 0);
             ThreadPoolExecutor threadPoolExecutor;
@@ -47,12 +47,12 @@ public class SimpleServer {
             server.setExecutor(threadPoolExecutor);
             server.start();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e);
         }
     }
 
-    public void stop(){
+    public void stop() {
         System.out.println("Stopping Server");
         server.stop(1);
     }
@@ -61,8 +61,8 @@ public class SimpleServer {
         return port;
     }
 
-    public String getIP(){
-        try(final DatagramSocket socket = new DatagramSocket()){
+    public String getIP() {
+        try (final DatagramSocket socket = new DatagramSocket()) {
             socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
             return socket.getLocalAddress().getHostAddress();
         } catch (Exception e) {
