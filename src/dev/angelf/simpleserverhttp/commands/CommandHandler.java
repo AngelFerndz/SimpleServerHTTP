@@ -1,7 +1,5 @@
 package dev.angelf.simpleserverhttp.commands;
 
-import dev.angelf.simpleserverhttp.server.SimpleServer;
-
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -12,6 +10,7 @@ public class CommandHandler {
     // Commands
     private HelpCommand helpCommand;
     private ServerCommand serverCommand;
+    private RequestCommand requestCommand;
 
     public CommandHandler() {
         load();
@@ -33,6 +32,7 @@ public class CommandHandler {
         scanner = new Scanner(System.in);
         helpCommand = new HelpCommand();
         serverCommand = new ServerCommand();
+        requestCommand = new RequestCommand();
     }
 
     private void process(String command) {
@@ -43,9 +43,9 @@ public class CommandHandler {
                 serverCommand.run(command);
                 break;
             case "request":
-                //sendRequest(elements[1]);
+                requestCommand.run(command);
                 break;
-            case "end":
+            case "stop":
                 running = false;
                 break;
             case "help":

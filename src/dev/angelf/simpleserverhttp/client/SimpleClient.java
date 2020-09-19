@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class SimpleClient {
 
-    public String request(String IP, String Port, String Location) {
+    public static String request(String IP, String Port, String Location) {
         try {
             String Address = "http://" + IP + ":" + Port + Location;
             URL url = new URL(Address);
@@ -29,11 +29,11 @@ public class SimpleClient {
             return result;
         } catch (Exception e) {
             String ping = sendPingRequest(IP);
-            return ("Request Error: " + e + " | " + ping);
+            return ("Request Error: " + e + "\n" + ping);
         }
     }
 
-    public String sendPingRequest(String IP) {
+    public static String sendPingRequest(String IP) {
         try {
             InetAddress geek = InetAddress.getByName(IP);
             System.out.println("Sending Ping Request to " + IP);

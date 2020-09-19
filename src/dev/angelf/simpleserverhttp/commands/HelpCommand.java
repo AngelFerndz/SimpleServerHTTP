@@ -15,11 +15,11 @@ public class HelpCommand implements Command {
     private void full() {
         System.out.println(
                 "----------------------------------------------- Help Menu\n" +
-                        "server []         : \n" +
+                        "server []         : type 'help server' for more info\n" +
                         "request []        : send a request as a client\n" +
-                        "end               : end program\n" +
+                        "stop              : end program\n" +
                         "help              : to open this screen\n" +
-                        "help [command]    : get more information on command" +
+                        "help [command]    : get more information on command \n" +
                         "---------------------------------------------------------");
     }
 
