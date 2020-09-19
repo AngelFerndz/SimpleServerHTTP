@@ -11,6 +11,7 @@ public class CommandHandler {
 
     // Commands
     private HelpCommand helpCommand;
+    private ServerCommand serverCommand;
 
     public CommandHandler() {
         load();
@@ -31,31 +32,20 @@ public class CommandHandler {
     private void load() {
         scanner = new Scanner(System.in);
         helpCommand = new HelpCommand();
+        serverCommand = new ServerCommand();
     }
 
     private void process(String command) {
         String[] elements = command.toLowerCase().split(" ");
 
         switch (elements[0]) {
-            case "start_server":
-                SimpleServer.initialize();
-                SimpleServer.getInstance().start();
+            case "server":
+                serverCommand.run(command);
                 break;
             case "request":
                 //sendRequest(elements[1]);
                 break;
-            case "stop_server":
-                SimpleServer.getInstance().stop();
-                break;
-            case "get_server_ip":
-                String ip = SimpleServer.getInstance().getIP();
-                System.out.println(ip);
-                break;
-            case "get_server_port":
-                int port = SimpleServer.getInstance().getPort();
-                System.out.println(port);
-                break;
-            case "close":
+            case "end":
                 running = false;
                 break;
             case "help":

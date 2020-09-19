@@ -36,6 +36,7 @@ public class SimpleServer {
     private SimpleServer(int Port, String HostName) {
         port = Port;
         hostname = HostName;
+        System.out.println("Starting Server \nHost: " + HostName + " \nPort: " + Port);
     }
 
     // Methods
