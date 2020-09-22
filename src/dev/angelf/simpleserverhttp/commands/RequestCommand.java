@@ -7,10 +7,10 @@ public class RequestCommand implements Command{
     public void run(String command) {
         String[] elements = command.split(" ");
         if(elements.length > 1) {
-            String request = SimpleClient.request("127.0.0.1", "8080", elements[1]);
+            String request = SimpleClient.request("127.0.0.1", "80", elements[1]);
             System.out.println(request);
         } else {
-            System.out.println("Invalid Request");
+            System.out.println("Invalid Request, type 'help' for more information.");
         }
     }
 }

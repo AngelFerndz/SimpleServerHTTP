@@ -17,7 +17,7 @@ public class SimpleServer {
 
     // Singleton
     public static void initialize(){
-        instance = new SimpleServer(8080, "localhost");
+        instance = new SimpleServer(80, "localhost");
     }
 
     public static void initialize(int Port){

@@ -47,6 +47,7 @@ public class CommandHandler {
                 break;
             case "stop":
                 running = false;
+                System.exit(0);
                 break;
             case "help":
                 helpCommand.run(command);
