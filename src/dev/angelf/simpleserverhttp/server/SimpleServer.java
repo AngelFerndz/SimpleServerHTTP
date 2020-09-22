@@ -1,6 +1,7 @@
 package dev.angelf.simpleserverhttp.server;
 
 import com.sun.net.httpserver.HttpServer;
+import dev.angelf.simpleserverhttp.tools.Logger;
 
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -36,7 +37,7 @@ public class SimpleServer {
     private SimpleServer(int Port, String HostName) {
         port = Port;
         hostname = HostName;
-        System.out.println("Starting Server \nHost: " + HostName + " \nPort: " + Port);
+        Logger.log("Starting Server | Host: " + HostName + " | Port: " + Port);
     }
 
     // Methods
@@ -55,12 +56,12 @@ public class SimpleServer {
             server.start();
 
         } catch (Exception e) {
-            System.out.println("Error: " + e);
+            Logger.log("Error: " + e);
         }
     }
 
     public void stop() {
-        System.out.println("Stopping Server");
+        Logger.log("Stopping Server");
         server.stop(1);
     }
 

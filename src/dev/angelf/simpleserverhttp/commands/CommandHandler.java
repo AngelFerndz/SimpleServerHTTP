@@ -1,5 +1,7 @@
 package dev.angelf.simpleserverhttp.commands;
 
+import dev.angelf.simpleserverhttp.tools.Logger;
+
 import java.util.Scanner;
 
 public class CommandHandler {
@@ -53,7 +55,7 @@ public class CommandHandler {
                 helpCommand.run(command);
                 break;
             default:
-                System.out.println("Command Not Found, type 'help' for available commands.");
+                Logger.log("'" + command + "' Not Found, type 'help' for available commands.");
         }
 
     }

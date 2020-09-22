@@ -1,6 +1,7 @@
 package dev.angelf.simpleserverhttp.commands;
 
 import dev.angelf.simpleserverhttp.client.SimpleClient;
+import dev.angelf.simpleserverhttp.tools.Logger;
 
 public class RequestCommand implements Command{
     @Override
@@ -8,9 +9,9 @@ public class RequestCommand implements Command{
         String[] elements = command.split(" ");
         if(elements.length > 1) {
             String request = SimpleClient.request("127.0.0.1", "80", elements[1]);
-            System.out.println(request);
+            Logger.log(request);
         } else {
-            System.out.println("Invalid Request, type 'help' for more information.");
+            Logger.log("Invalid Request '" + command + "', type 'help' for more information.");
         }
     }
 }

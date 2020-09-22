@@ -1,5 +1,7 @@
 package dev.angelf.simpleserverhttp.client;
 
+import dev.angelf.simpleserverhttp.tools.Logger;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -28,22 +30,22 @@ public class SimpleClient {
             }
             return result;
         } catch (Exception e) {
-            String ping = sendPingRequest(IP);
-            return ("Request Error: " + e + "\n" + ping);
+            sendPingRequest(IP);
+            return ("Request Error: '"+ Location +"' not found!");
         }
     }
 
-    public static String sendPingRequest(String IP) {
+    public static void sendPingRequest(String IP) {
         try {
             InetAddress geek = InetAddress.getByName(IP);
-            System.out.println("Sending Ping Request to " + IP);
+            Logger.log("Sending Ping Request to " + IP);
             if (geek.isReachable(5000)) {
-                return "Host is reachable";
+                Logger.log("Host is reachable");
             } else {
-                return "Cannot reach to this host";
+                Logger.log("Cannot reach to this host");
             }
         } catch (Exception e) {
-            return "Ping Error: " + e;
+            Logger.log("Ping Error: " + e);
         }
     }
 

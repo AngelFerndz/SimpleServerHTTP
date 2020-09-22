@@ -1,6 +1,7 @@
 package dev.angelf.simpleserverhttp.commands;
 
 import dev.angelf.simpleserverhttp.server.SimpleServer;
+import dev.angelf.simpleserverhttp.tools.Logger;
 
 public class ServerCommand implements Command{
 
@@ -12,24 +13,24 @@ public class ServerCommand implements Command{
                 case "start":
                     SimpleServer.initialize();
                     SimpleServer.getInstance().start();
-                    System.out.println("Server Running");
+                    Logger.log("Server Running");
                     break;
                 case "stop":
                     SimpleServer.getInstance().stop();
-                    System.out.println("Server Stopped");
+                    Logger.log("Server Stopped");
                     break;
                 case "ip":
                     String ip = SimpleServer.getInstance().getIP();
-                    System.out.println(ip);
+                    Logger.log("Server IP: " + ip);
                     break;
                 case "port":
                     int port = SimpleServer.getInstance().getPort();
-                    System.out.println(port);
+                    Logger.log("Server Port: " + port);
                     break;
             }
         } else {
             boolean isActive = SimpleServer.getInstance() != null;
-            System.out.println("Server Active: " + isActive);
+            Logger.log("Server Active: " + isActive);
         }
     }
 
