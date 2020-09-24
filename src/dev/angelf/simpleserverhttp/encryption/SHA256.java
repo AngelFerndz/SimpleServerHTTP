@@ -6,7 +6,7 @@ import java.security.MessageDigest;
 
 public class SHA256 {
 
-    public static String get(String input){
+    public static String convert(String input){
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] sha256 = md.digest(input.getBytes(StandardCharsets.UTF_8));

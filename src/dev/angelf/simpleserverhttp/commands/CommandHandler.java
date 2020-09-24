@@ -13,6 +13,7 @@ public class CommandHandler {
     private HelpCommand helpCommand;
     private ServerCommand serverCommand;
     private RequestCommand requestCommand;
+    private ReadFileCommand readFileCommand;
 
     public CommandHandler() {
         load();
@@ -35,6 +36,7 @@ public class CommandHandler {
         helpCommand = new HelpCommand();
         serverCommand = new ServerCommand();
         requestCommand = new RequestCommand();
+        readFileCommand = new ReadFileCommand();
     }
 
     private void process(String command) {
@@ -50,6 +52,9 @@ public class CommandHandler {
             case "stop":
                 running = false;
                 System.exit(0);
+                break;
+            case "read":
+                readFileCommand.run(command);
                 break;
             case "help":
                 helpCommand.run(command);
