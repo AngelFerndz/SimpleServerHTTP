@@ -3,29 +3,24 @@ package dev.angelf.simpleserverhttp.commands;
 import dev.angelf.simpleserverhttp.server.SimpleServer;
 import dev.angelf.simpleserverhttp.tools.Logger;
 
-public class ServerCommand implements Command{
+public class ServerCommand implements Command {
 
     @Override
     public void run(String command) {
         String[] elements = command.split(" ");
-        if(elements.length > 1) {
+        if (elements.length > 1) {
             switch (elements[1]) {
                 case "start":
-                    SimpleServer.initialize();
-                    SimpleServer.getInstance().start();
-                    Logger.log("Server Running");
+                    start_server();
                     break;
                 case "stop":
-                    SimpleServer.getInstance().stop();
-                    Logger.log("Server Stopped");
+                    stop_server();
                     break;
                 case "ip":
-                    String ip = SimpleServer.getInstance().getIP();
-                    Logger.log("Server IP: " + ip);
+                    get_ip();
                     break;
                 case "port":
-                    int port = SimpleServer.getInstance().getPort();
-                    Logger.log("Server Port: " + port);
+                    get_port();
                     break;
             }
         } else {
@@ -33,5 +28,41 @@ public class ServerCommand implements Command{
             Logger.log("Server Active: " + isActive);
         }
     }
+
+    private void start_server() {
+        try {
+            SimpleServer.initialize();
+            SimpleServer.getInstance().start();
+        } catch (Exception e) {
+            Logger.log("Error: " + e);
+        }
+    }
+
+    private void stop_server() {
+        try {
+            SimpleServer.getInstance().stop();
+        } catch (Exception e) {
+            Logger.log("Error: " + e);
+        }
+    }
+
+    private void get_ip() {
+        try {
+            String ip = SimpleServer.getInstance().getIP();
+            Logger.log("Server IP: " + ip);
+        } catch (Exception e) {
+            Logger.log("Error: " + e);
+        }
+    }
+
+    private void get_port() {
+        try {
+            int port = SimpleServer.getInstance().getPort();
+            Logger.log("Server Port: " + port);
+        } catch (Exception e) {
+            Logger.log("Error: " + e);
+        }
+    }
+
 
 }
