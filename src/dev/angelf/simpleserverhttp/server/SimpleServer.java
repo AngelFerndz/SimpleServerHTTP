@@ -72,11 +72,11 @@ public class SimpleServer {
         Logger.log("Server Stopped");
     }
 
-    public int getPort() {
+    public int get_port() {
         return port;
     }
 
-    public String getIP() {
+    public String get_ip() {
         try (final DatagramSocket socket = new DatagramSocket()) {
             socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
             return socket.getLocalAddress().getHostAddress();

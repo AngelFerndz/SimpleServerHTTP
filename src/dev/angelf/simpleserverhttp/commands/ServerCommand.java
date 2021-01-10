@@ -48,7 +48,7 @@ public class ServerCommand implements Command {
 
     private void get_ip() {
         try {
-            String ip = SimpleServer.getInstance().getIP();
+            String ip = SimpleServer.getInstance().get_ip();
             Logger.log("Server IP: " + ip);
         } catch (Exception e) {
             Logger.log("Error: " + e);
@@ -57,12 +57,11 @@ public class ServerCommand implements Command {
 
     private void get_port() {
         try {
-            int port = SimpleServer.getInstance().getPort();
+            int port = SimpleServer.getInstance().get_port();
             Logger.log("Server Port: " + port);
         } catch (Exception e) {
             Logger.log("Error: " + e);
         }
     }
-
 
 }

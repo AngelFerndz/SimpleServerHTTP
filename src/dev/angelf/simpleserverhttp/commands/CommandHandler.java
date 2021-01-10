@@ -21,10 +21,7 @@ public class CommandHandler {
 
     public void start() {
         running = true;
-        run();
-    }
-
-    private void run() {
+        print_text();
         while (running) {
             String command = scanner.nextLine();
             process(command);
@@ -63,6 +60,13 @@ public class CommandHandler {
                 Logger.log("'" + command + "' Not Found, type 'help' for available commands.");
         }
 
+    }
+
+    private void print_text() {
+        Logger.log("Simple HTTP Server");
+        Logger.log("Created by Angel Fernandez");
+        Logger.log("--------------------------");
+        Logger.log("type 'help' to get started.");
     }
 
 }
