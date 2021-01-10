@@ -14,12 +14,15 @@ public class HelpCommand implements Command {
 
     private void full() {
         System.out.println(
-                "----------------------------------------------- Help Menu\n" +
-                        "server []         : type 'help server' for more info\n" +
-                        "request []        : send a request as a client\n" +
-                        "stop              : end program\n" +
-                        "help              : to open this screen\n" +
-                        "help [command]    : get more information on command \n" +
+                "----------------------------------------------- Help Menu \n" +
+                        "server []           : type 'help server' for more info \n" +
+                        "request [filename]  : send a request as a client \n" +
+                        "read [filename]     : read file in the 'file' directory \n" +
+                        "open [filename]     : stores file data in clipboard \n" +
+                        "save [filename]     : save clipboard to file \n" +
+                        "stop                : end program \n" +
+                        "help                : to open this screen \n" +
+                        "help [command]      : get more information on command \n" +
                         "---------------------------------------------------------");
     }
 
@@ -36,6 +39,10 @@ public class HelpCommand implements Command {
                 System.out.println("server start : start default server");
                 System.out.println("server stop  : stop current server instance");
                 System.out.println("server       : server active");
+                break;
+            case "read":
+                System.out.println("server [file]");
+                System.out.println("Example: read index.html");
                 break;
         }
     }

@@ -1,5 +1,7 @@
 package dev.angelf.simpleserverhttp.filesystem;
 
+import dev.angelf.simpleserverhttp.tools.Logger;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -18,7 +20,7 @@ public class ReadFile {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Error: " + e);
+            return "Error " + e;
         }
 
         return Text;

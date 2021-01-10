@@ -42,7 +42,7 @@ public class WriteFile {
             writer.write(Text);
             writer.close();
         } catch (Exception e){
-            e.printStackTrace();
+            Logger.log("Error: " + e);
         }
 
     }
