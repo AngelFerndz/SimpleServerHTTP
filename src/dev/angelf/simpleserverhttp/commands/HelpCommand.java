@@ -20,18 +20,14 @@ public class HelpCommand implements Command {
                         "read [filename]     : read file in the 'file' directory \n" +
                         "open [filename]     : stores file data in clipboard \n" +
                         "save [filename]     : save clipboard to file \n" +
-                        "stop                : end program \n" +
-                        "help                : to open this screen \n" +
+                        "stop                : ends program \n" +
+                        "help                : opens this screen \n" +
                         "help [command]      : get more information on command \n" +
                         "---------------------------------------------------------");
     }
 
     private void help(String element){
         switch (element){
-            case "request":
-                System.out.println("request [URL]");
-                System.out.println("Example: request /test");
-                break;
             case "server":
                 System.out.println("server [command]");
                 System.out.println("server ip    : get local ip address");
@@ -40,9 +36,21 @@ public class HelpCommand implements Command {
                 System.out.println("server stop  : stop current server instance");
                 System.out.println("server       : server active");
                 break;
+            case "request":
+                System.out.println("request [URL]");
+                System.out.println("Example: request /test");
+                break;
             case "read":
-                System.out.println("server [file]");
+                System.out.println("read [file]");
                 System.out.println("Example: read index.html");
+                break;
+            case "save":
+                System.out.println("save [file]");
+                System.out.println("saves data stored in clipboard to a file.");
+                break;
+            case "open":
+                System.out.println("open [file]");
+                System.out.println("opens stores data from a file to clipboard.");
                 break;
         }
     }
