@@ -3,7 +3,7 @@ package dev.angelf.simpleserverhttp.commands;
 import dev.angelf.simpleserverhttp.filesystem.ReadFile;
 import dev.angelf.simpleserverhttp.tools.Logger;
 
-public class ReadFileCommand implements Command {
+public class ReadCommand implements Command {
 
     @Override
     public void run(String command) {
