@@ -32,7 +32,7 @@ public class WriteFile {
         }
     }
 
-    public static void appendNewLine(String FilePath, String FileName, String Text){
+    public static void appendNewLine(String FilePath, String FileName, String Text) {
 
         try {
             BufferedWriter writer = new BufferedWriter(
@@ -41,7 +41,7 @@ public class WriteFile {
             writer.newLine();   //Add new line
             writer.write(Text);
             writer.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             Logger.log("Error: " + e);
         }
 

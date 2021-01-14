@@ -8,12 +8,12 @@ public class Base64Encryption {
     private static BASE64Encoder enc = new BASE64Encoder();
     private static BASE64Decoder dec = new BASE64Decoder();
 
-    public static String encrypt(String Text, String Key){
+    public static String encrypt(String Text, String Key) {
         String result = xorMessage(Text, Key);
         return base64encode(result);
     }
 
-    public static String decrypt(String Text, String Key){
+    public static String decrypt(String Text, String Key) {
         String result = base64decode(Text);
         return xorMessage(result, Key);
     }

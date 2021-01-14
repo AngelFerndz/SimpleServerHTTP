@@ -15,7 +15,7 @@ public class HelpCommand implements Command {
     private void full() {
         System.out.println(
                 "----------------------------------------------- Help Menu \n" +
-                        "server []           : type 'help server' for more info \n" +
+                        "server              : type 'help server' for more info \n" +
                         "request [filename]  : send a request as a client \n" +
                         "read [filename]     : read file in the 'file' directory \n" +
                         "open [filename]     : stores file data in clipboard \n" +
@@ -27,8 +27,8 @@ public class HelpCommand implements Command {
                         "---------------------------------------------------------");
     }
 
-    private void help(String element){
-        switch (element){
+    private void help(String element) {
+        switch (element) {
             case "server":
                 System.out.println("server [command]");
                 System.out.println("server ip    : get local ip address");
@@ -42,15 +42,15 @@ public class HelpCommand implements Command {
                 System.out.println("Example: request /test");
                 break;
             case "read":
-                System.out.println("read [file]");
+                System.out.println("read [filename]");
                 System.out.println("Example: read index.html");
                 break;
             case "save":
-                System.out.println("save [file]");
+                System.out.println("save [filename]");
                 System.out.println("saves data stored in clipboard to a file.");
                 break;
             case "open":
-                System.out.println("open [file]");
+                System.out.println("open [filename]");
                 System.out.println("opens stores data from a file to clipboard.");
                 break;
             case "clipboard":

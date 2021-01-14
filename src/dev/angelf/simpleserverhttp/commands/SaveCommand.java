@@ -16,7 +16,7 @@ public class SaveCommand implements Command {
         }
     }
 
-    private void save(String FileName){
+    private void save(String FileName) {
         String filePath = "file/" + FileName;
         WriteFile.write(Clipboard.get_data(), filePath);
     }

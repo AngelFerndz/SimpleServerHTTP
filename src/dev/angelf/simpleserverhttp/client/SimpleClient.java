@@ -31,7 +31,7 @@ public class SimpleClient {
             return result;
         } catch (Exception e) {
             sendPingRequest(IP);
-            return ("Request Error: '"+ Location +"' not found!");
+            return ("Request Error: '" + Location + "' not found!");
         }
     }
 

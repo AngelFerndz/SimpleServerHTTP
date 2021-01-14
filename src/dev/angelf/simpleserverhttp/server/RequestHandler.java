@@ -25,8 +25,10 @@ public class RequestHandler implements HttpHandler {
         String[] command = request.toLowerCase().split("/");
 
         switch (command[1]) {
-            case "file": return get(command[2]);
-            case "test": return "Test Works";
+            case "file":
+                return get(command[2]);
+            case "test":
+                return "Test Works";
         }
         return "Invalid Request Error";
     }

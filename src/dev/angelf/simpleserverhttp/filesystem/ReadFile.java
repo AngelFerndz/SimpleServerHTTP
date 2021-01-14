@@ -1,7 +1,5 @@
 package dev.angelf.simpleserverhttp.filesystem;
 
-import dev.angelf.simpleserverhttp.tools.Logger;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
