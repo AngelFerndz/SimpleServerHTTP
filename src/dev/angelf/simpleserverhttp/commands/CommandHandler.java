@@ -1,5 +1,6 @@
 package dev.angelf.simpleserverhttp.commands;
 
+import dev.angelf.simpleserverhttp.tools.Clipboard;
 import dev.angelf.simpleserverhttp.tools.Logger;
 
 import java.util.Scanner;
@@ -18,12 +19,12 @@ public class CommandHandler {
     private SaveCommand saveCommand;
 
     public CommandHandler() {
+        print_text();
         load();
     }
 
     public void start() {
         running = true;
-        print_text();
         while (running) {
             String command = scanner.nextLine();
             process(command);
@@ -38,6 +39,13 @@ public class CommandHandler {
         readCommand = new ReadCommand();
         openCommand = new OpenCommand();
         saveCommand = new SaveCommand();
+    }
+
+    private void print_text() {
+        Logger.log("Simple HTTP Server");
+        Logger.log("Created by Angel Fernandez");
+        Logger.log("--------------------------");
+        Logger.log("type 'help' to get started.");
     }
 
     private void process(String command) {
@@ -63,6 +71,9 @@ public class CommandHandler {
             case "save":
                 saveCommand.run(command);
                 break;
+            case "clipboard":
+                Logger.log(Clipboard.get_data());
+                break;
             case "help":
                 helpCommand.run(command);
                 break;
@@ -70,13 +81,6 @@ public class CommandHandler {
                 Logger.log("'" + command + "' Not Found, type 'help' for available commands.");
         }
 
-    }
-
-    private void print_text() {
-        Logger.log("Simple HTTP Server");
-        Logger.log("Created by Angel Fernandez");
-        Logger.log("--------------------------");
-        Logger.log("type 'help' to get started.");
     }
 
 }

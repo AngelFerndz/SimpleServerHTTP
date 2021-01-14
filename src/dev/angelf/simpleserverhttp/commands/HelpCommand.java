@@ -20,6 +20,7 @@ public class HelpCommand implements Command {
                         "read [filename]     : read file in the 'file' directory \n" +
                         "open [filename]     : stores file data in clipboard \n" +
                         "save [filename]     : save clipboard to file \n" +
+                        "clipboard           : display clipboard data. \n" +
                         "stop                : ends program \n" +
                         "help                : opens this screen \n" +
                         "help [command]      : get more information on command \n" +
@@ -52,6 +53,9 @@ public class HelpCommand implements Command {
                 System.out.println("open [file]");
                 System.out.println("opens stores data from a file to clipboard.");
                 break;
+            case "clipboard":
+                System.out.println("clipboard");
+                System.out.println("clipboard contains data as a String value.");
         }
     }
 
