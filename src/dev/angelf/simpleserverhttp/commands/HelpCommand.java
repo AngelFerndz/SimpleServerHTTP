@@ -39,7 +39,7 @@ public class HelpCommand implements Command {
                 break;
             case "request":
                 System.out.println("request [URL]");
-                System.out.println("Example: request /test");
+                System.out.println("Example: /file/index.html");
                 break;
             case "read":
                 System.out.println("read [filename]");

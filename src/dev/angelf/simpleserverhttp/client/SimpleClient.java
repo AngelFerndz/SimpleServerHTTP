@@ -41,11 +41,23 @@ public class SimpleClient {
             Logger.log("Sending Ping Request to " + IP);
             if (geek.isReachable(5000)) {
                 Logger.log("Host is reachable");
+
             } else {
                 Logger.log("Cannot reach to this host");
             }
         } catch (Exception e) {
             Logger.log("Ping Error: " + e);
+        }
+    }
+
+    public static int pingHost(String IP){
+        try {
+            Long start = System.currentTimeMillis();
+            if (!InetAddress.getByName(IP).isReachable(2000)) return -1;
+            return (int) (System.currentTimeMillis() - start);
+        } catch (Exception e) {
+            Logger.log("Error: " + e);
+            return -1;
         }
     }
 

@@ -78,7 +78,7 @@ public class SimpleServer {
 
     public String get_ip() {
         try (final DatagramSocket socket = new DatagramSocket()) {
-            socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
+            socket.connect(InetAddress.getByName("8.8.8.8"), 80);
             return socket.getLocalAddress().getHostAddress();
         } catch (Exception e) {
             return "Error: " + e;
