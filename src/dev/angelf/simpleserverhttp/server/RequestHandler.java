@@ -27,8 +27,6 @@ public class RequestHandler implements HttpHandler {
         switch (command[1]) {
             case "file":
                 return get(command[2]);
-            case "test":
-                return "Test Works";
         }
         return "Invalid Request Error";
     }

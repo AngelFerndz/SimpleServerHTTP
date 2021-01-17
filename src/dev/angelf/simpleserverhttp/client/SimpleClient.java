@@ -28,6 +28,7 @@ public class SimpleClient {
             while ((strCurrentLine = br.readLine()) != null) {
                 result += strCurrentLine;
             }
+
             return result;
         } catch (Exception e) {
             sendPingRequest(IP);

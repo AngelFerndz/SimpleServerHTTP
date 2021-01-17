@@ -7,9 +7,13 @@ public class RequestCommand implements Command {
     @Override
     public void run(String command) {
         String[] elements = command.split(" ");
-        if (elements.length > 1) {
-            String request = SimpleClient.request("127.0.0.1", "80", elements[1]);
-            Logger.log(request);
+        if (elements.length > 2) {
+            try {
+                String request = SimpleClient.request(elements[1], "80", elements[2]);
+                Logger.log(request);
+            } catch (Exception e) {
+                Logger.log("Error: " + e);
+            }
         } else {
             Logger.log("Invalid Request '" + command + "', type 'help' for more information.");
         }

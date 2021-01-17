@@ -16,10 +16,10 @@ public class HelpCommand implements Command {
         System.out.println(
                 "----------------------------------------------- Help Menu \n" +
                         "server              : type 'help server' for more info \n" +
-                        "request [filename]  : send a request as a client \n" +
-                        "read [filename]     : read file in the 'file' directory \n" +
-                        "open [filename]     : stores file data in clipboard \n" +
-                        "save [filename]     : save clipboard to file \n" +
+                        "request [IP] [file] : send a request as a client \n" +
+                        "read [file]         : read file in the 'file' directory \n" +
+                        "open [file]         : stores file data in clipboard \n" +
+                        "save [file]        : save clipboard to file \n" +
                         "clipboard           : display clipboard data. \n" +
                         "stop                : ends program \n" +
                         "help                : opens this screen \n" +
@@ -38,19 +38,19 @@ public class HelpCommand implements Command {
                 System.out.println("server       : server active");
                 break;
             case "request":
-                System.out.println("request [URL]");
-                System.out.println("Example: /file/index.html");
+                System.out.println("request [IP] [file]");
+                System.out.println("Example: index.html");
                 break;
             case "read":
-                System.out.println("read [filename]");
+                System.out.println("read [file]");
                 System.out.println("Example: read index.html");
                 break;
             case "save":
-                System.out.println("save [filename]");
+                System.out.println("save [file]");
                 System.out.println("saves data stored in clipboard to a file.");
                 break;
             case "open":
-                System.out.println("open [filename]");
+                System.out.println("open [file]");
                 System.out.println("opens stores data from a file to clipboard.");
                 break;
             case "clipboard":
