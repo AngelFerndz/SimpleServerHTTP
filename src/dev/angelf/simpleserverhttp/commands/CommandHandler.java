@@ -14,6 +14,7 @@ public class CommandHandler {
     private HelpCommand helpCommand;
     private ServerCommand serverCommand;
     private RequestCommand requestCommand;
+    private PingCommand pingCommand;
     private ReadCommand readCommand;
     private OpenCommand openCommand;
     private SaveCommand saveCommand;
@@ -36,6 +37,7 @@ public class CommandHandler {
         helpCommand = new HelpCommand();
         serverCommand = new ServerCommand();
         requestCommand = new RequestCommand();
+        pingCommand = new PingCommand();
         readCommand = new ReadCommand();
         openCommand = new OpenCommand();
         saveCommand = new SaveCommand();
@@ -57,6 +59,9 @@ public class CommandHandler {
                 break;
             case "request":
                 requestCommand.run(command);
+                break;
+            case "ping":
+                pingCommand.run(command);
                 break;
             case "stop":
                 running = false;
