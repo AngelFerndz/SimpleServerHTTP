@@ -11,7 +11,7 @@ public class ServerCommand implements Command {
         if (elements.length > 1) {
             switch (elements[1]) {
                 case "start":
-                    start_server();
+                    start_server(elements);
                     break;
                 case "stop":
                     stop_server();
@@ -22,46 +22,60 @@ public class ServerCommand implements Command {
                 case "port":
                     get_port();
                     break;
+                default:
+                    Logger.log("Invalid Command");
+                    break;
             }
         } else {
-            boolean isActive = SimpleServer.getInstance() != null;
+            boolean isActive = is_active();
             Logger.log("Server Active: " + isActive);
         }
     }
 
-    private void start_server() {
+    private void start_server(String[] elements) {
         try {
+            int amount = 1;
             SimpleServer.initialize();
-            SimpleServer.getInstance().start();
+
+            if (elements.length > 2) {
+                // modify amount
+                amount = Integer.parseInt(elements[2]);
+            }
+
+            SimpleServer.getInstance().start(amount);
         } catch (Exception e) {
             Logger.log("Error: " + e);
         }
     }
 
     private void stop_server() {
-        try {
+        if (is_active()) {
             SimpleServer.getInstance().stop();
-        } catch (Exception e) {
-            Logger.log("Error: " + e);
+        } else {
+            Logger.log("Server not active!");
         }
     }
 
     private void get_ip() {
-        try {
+        if (is_active()) {
             String ip = SimpleServer.getInstance().get_ip();
             Logger.log("Server IP: " + ip);
-        } catch (Exception e) {
-            Logger.log("Error: " + e);
+        } else {
+            Logger.log("Server not active!");
         }
     }
 
     private void get_port() {
-        try {
+        if (is_active()) {
             int port = SimpleServer.getInstance().get_port();
             Logger.log("Server Port: " + port);
-        } catch (Exception e) {
-            Logger.log("Error: " + e);
+        } else {
+            Logger.log("Server not active!");
         }
+    }
+
+    private boolean is_active() {
+        return SimpleServer.getInstance() != null;
     }
 
 }

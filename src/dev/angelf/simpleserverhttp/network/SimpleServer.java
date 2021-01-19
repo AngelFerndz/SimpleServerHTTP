@@ -39,16 +39,16 @@ public class SimpleServer {
     }
 
     // Methods
-    public void start() {
+    public void start(int amount) {
         if (server != null) {
             Logger.log("Server already active");
         } else {
-            Logger.log("--------------------");
-            start(1);
+            run(amount);
+            Logger.log("Server Started  | " + amount + " thread(s)");
         }
     }
 
-    public void start(int ThreadAmount) {
+    private void run(int ThreadAmount) {
         try {
             server = HttpServer.create(new InetSocketAddress(hostname, port), 0);
             ThreadPoolExecutor threadPoolExecutor;

@@ -33,11 +33,12 @@ public class HelpCommand implements Command {
         switch (element) {
             case "server":
                 System.out.println("server [command]");
-                System.out.println("server ip    : get local ip address");
-                System.out.println("server port  : get port");
-                System.out.println("server start : start default server");
-                System.out.println("server stop  : stop current server instance");
-                System.out.println("server       : server active");
+                System.out.println("server ip             : get local ip address");
+                System.out.println("server port           : get port");
+                System.out.println("server start          : start server with one thread");
+                System.out.println("server start [amount] : start server with a custom amount of threads");
+                System.out.println("server stop           : stop current server instance");
+                System.out.println("server                : server active");
                 break;
             case "request":
                 System.out.println("request [IP] [file]");
