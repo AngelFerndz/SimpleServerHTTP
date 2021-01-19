@@ -14,6 +14,7 @@ public class CommandHandler {
     private HelpCommand helpCommand;
     private ServerCommand serverCommand;
     private RequestCommand requestCommand;
+    private StatusCommand statusCommand;
     private PingCommand pingCommand;
     private ReadCommand readCommand;
     private OpenCommand openCommand;
@@ -34,13 +35,14 @@ public class CommandHandler {
 
     private void load() {
         scanner = new Scanner(System.in);
-        helpCommand = new HelpCommand();
         serverCommand = new ServerCommand();
         requestCommand = new RequestCommand();
+        statusCommand = new StatusCommand();
         pingCommand = new PingCommand();
         readCommand = new ReadCommand();
         openCommand = new OpenCommand();
         saveCommand = new SaveCommand();
+        helpCommand = new HelpCommand();
     }
 
     private void print_text() {
@@ -59,6 +61,9 @@ public class CommandHandler {
                 break;
             case "request":
                 requestCommand.run(command);
+                break;
+            case "status":
+                statusCommand.run(command);
                 break;
             case "ping":
                 pingCommand.run(command);

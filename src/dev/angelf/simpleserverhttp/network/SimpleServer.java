@@ -1,10 +1,8 @@
-package dev.angelf.simpleserverhttp.server;
+package dev.angelf.simpleserverhttp.network;
 
 import com.sun.net.httpserver.HttpServer;
 import dev.angelf.simpleserverhttp.tools.Logger;
 
-import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -77,12 +75,7 @@ public class SimpleServer {
     }
 
     public String get_ip() {
-        try (final DatagramSocket socket = new DatagramSocket()) {
-            socket.connect(InetAddress.getByName("8.8.8.8"), 80);
-            return socket.getLocalAddress().getHostAddress();
-        } catch (Exception e) {
-            return "Error: " + e;
-        }
+        return SimpleClient.get_ip();
     }
 
 }

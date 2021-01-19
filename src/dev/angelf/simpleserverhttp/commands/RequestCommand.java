@@ -1,6 +1,6 @@
 package dev.angelf.simpleserverhttp.commands;
 
-import dev.angelf.simpleserverhttp.client.SimpleClient;
+import dev.angelf.simpleserverhttp.network.SimpleClient;
 import dev.angelf.simpleserverhttp.tools.Logger;
 
 public class RequestCommand implements Command {

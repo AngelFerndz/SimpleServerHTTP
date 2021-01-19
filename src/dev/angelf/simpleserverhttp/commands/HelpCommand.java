@@ -17,9 +17,11 @@ public class HelpCommand implements Command {
                 "----------------------------------------------- Help Menu \n" +
                         "server              : type 'help server' for more info \n" +
                         "request [IP] [file] : send a request as a client \n" +
+                        "ping [IP]           : pings ip address and returns ms \n" +
+                        "status              : get full status \n" +
                         "read [file]         : read file in the 'file' directory \n" +
                         "open [file]         : stores file data in clipboard \n" +
-                        "save [file]        : save clipboard to file \n" +
+                        "save [file]         : save clipboard to file \n" +
                         "clipboard           : display clipboard data. \n" +
                         "stop                : ends program \n" +
                         "help                : opens this screen \n" +
@@ -40,6 +42,14 @@ public class HelpCommand implements Command {
             case "request":
                 System.out.println("request [IP] [file]");
                 System.out.println("Example: index.html");
+                break;
+            case "status":
+                System.out.println("status");
+                break;
+            case "ping":
+                System.out.println("ping [IP]");
+                System.out.println("Example: ping 127.0.0.1");
+                System.out.println("ping all : pings all ip addresses in ip_list file");
                 break;
             case "read":
                 System.out.println("read [file]");

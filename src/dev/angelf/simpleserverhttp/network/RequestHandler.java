@@ -1,4 +1,4 @@
-package dev.angelf.simpleserverhttp.server;
+package dev.angelf.simpleserverhttp.network;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
