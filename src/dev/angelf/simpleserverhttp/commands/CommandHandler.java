@@ -1,5 +1,6 @@
 package dev.angelf.simpleserverhttp.commands;
 
+import dev.angelf.simpleserverhttp.network.SimpleClient;
 import dev.angelf.simpleserverhttp.tools.Clipboard;
 import dev.angelf.simpleserverhttp.tools.Logger;
 
@@ -48,7 +49,12 @@ public class CommandHandler {
     private void print_text() {
         Logger.log("Simple HTTP Server");
         Logger.log("Created by Angel Fernandez");
-        Logger.log("--------------------------");
+        Logger.log("-----------------------------");
+        String public_ip = SimpleClient.get_public_ip();
+        Logger.log("Public IP     : " + public_ip);
+        String ip = SimpleClient.get_ip();
+        Logger.log("Local IP      : " + ip);
+        Logger.log("-----------------------------");
         Logger.log("type 'help' to get started.");
     }
 
